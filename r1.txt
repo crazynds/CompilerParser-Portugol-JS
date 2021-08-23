@@ -1,0 +1,58 @@
+
+/*
+ * Essa função executa um super teste em X e retorna um valor
+ */
+inteiro superTeste(inteiro x){
+    se(x<5){
+        x=x*15;
+    }{
+        x=x/5;
+    }
+    retorna x;
+}
+
+/*
+ * Essa função é o main principal do programa.
+ */
+inteiro main(inteiro args,inteiro laps){
+    inteiro x,y;
+    char val;
+    x=10;
+    val='a';
+    
+    enquanto (x>0){
+        cadeia str;
+        inteiro z;
+        str = "teste "+x;
+        escreve(str);
+        escreve("teste "+x);
+        escreve("teste "+le());
+        val = le();
+        x=x-1;
+    }
+
+    se (superTeste(y)<12)
+        y=y+12;
+
+    se(x+5>12){
+        inteiro z;
+        z= z*12+x/5;
+    }
+
+    retorna x;
+}
+
+/*
+ * Essa funçao é um teste que recebe argumentos e existe. 
+ */
+vazio teste(inteiro args){
+    inteiro x,y;
+    x = 16;
+    y = 100;
+    y = main(4,x);
+    se((x>12)&&(x<1||y>3)||y>1){
+    
+    }senao{
+
+    }
+}

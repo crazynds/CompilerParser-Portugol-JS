@@ -1,0 +1,76 @@
+<funcao> : <tipo> <variavel> (<parametros>) <comandos>
+
+<parametros>: <declaracao> <parametros'> | vazio | <vazio>
+<parametros'>: ,<declaracao> <parametros'> | <vazio>
+
+<multi_declaracao>: <declaracao> <multi_declaracao'>
+<multi_declaracao'>: ,<variavel> <multi_declaracao'>|<vazio>
+<declaracao>: <tipo> <variavel>
+
+<argumentos>: <argumento> <argumentos'> | <vazio>
+<argumentos'>: ,<argumento><argumentos'> | <vazio>
+<argumento>: <variavel> | <num> | <string>
+
+<estrutura>: se (<condicoes>)<comandos> <senao> | enquanto (<condicoes>)<comandos> | para (<multi_declaracao>;<condicoes>;<variavel><atribuicao>)<comandos>
+
+<condicoes>:  <condicoes_or>  
+<condicoes_or>: <condicoes_and> <condicoes_or'>
+<condicoes_or'>: || <condicoes_and> <condicoes_or'> | <vazio>
+<condicoes_and>: <condicao> <condicoes_and'>
+<condicoes_and'>: && <condicao> <condicoes_and'> | <vazio>
+<condicao>: (<condicoes>) | <calculo> <comparacao> <calculo>
+
+
+<comando>: <estrutura> | <variavel><varivel_exec>; | <multi_declaracao>; | {<comandos>}
+<comando'>: <comando> <comando'> | <return> | <vazio>
+<return>: return <argumento>;
+<varivel_exec>: <atribuicao> |<exec_func>
+<exec_func>: (<argumentos>)
+<atribuicao>: = <calculo>
+
+
+<calculo>: <calculo_1>
+<calculo_1>: <calculo_2> <calculo_1'>
+<calculo_1'>: + <calculo_2> <calculo_1'> | - <calculo_2> <calculo_1'> | <vazio>
+<calculo_2>: <calculo_3> <calculo_2'>
+<calculo_2'>: * <calculo_3> <calculo_2'> | / <calculo_2> <calculo_2'> | <vazio>
+<calculo_3>: <calculo_val> <calculo_3'>
+<calculo_3'>: ^ <calculo_val> <calculo_3'> | <vazio>
+<calculo_val>: <variavel_chamada> | <num>  | <string>
+
+<variavel_chamada>: <variavel> | <chamada>
+
+<comando>: <estrutura> 
+<estrutura>: se (<condicoes>)<comando> <senao>
+<senao>: senao | <vazio>
+
+<estrutura>: <se> <senao>
+<se>: se (<condicoes>)<comando>
+<senao>: senao  | <vazio>
+
+
+
+
+
+
+
+
+
+
+
+
+Definidos: 
+<tipo> : char | real | inteiro | cadeia
+<reservada>: se|enquanto | para 
+<variavel>: ID 
+<num>: 'REAL' | 'INTEIRO' | 'CHAR' 
+<string>: 'CADEIA'
+<comparacao>: ==,!=,<,>,<=,>=
+<operadores_logicos>: && | || 
+<operadores_n1>: +,-
+<operadores_n2>: *,/
+<operadores_n3>: ^
+<vazio>: /0
+
+
+
