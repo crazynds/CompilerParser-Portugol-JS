@@ -176,7 +176,14 @@ module.exports = {
                 return this.content.token;
             },
             getError: function(){
-                return this.content.error;
+                if(this.content.error!=null)
+                    return this.content.error;
+                
+                if(this.content.token!=null)
+                    if(this.content.token.class=='NotFound')return{
+                        pos: this.content.token.pos,
+                        str: "Token ("+this.content.token.str+") não indentificavel nessa gramatica."
+                    }
             },
             getPosition: function(){
                 return this.content.newPosition;

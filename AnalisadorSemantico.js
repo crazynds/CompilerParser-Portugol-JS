@@ -82,8 +82,9 @@ function execGramaticaRec(semantica,tree,name){
     let mat = semantica.mat;
     let table = semantica.table;
     let nextCmp = name;
+    let error = checkErrorLexico(lexico);
     let tokenVal = (lexico.hasToken())?lexico.getToken().getComparable():'$';
-
+    if(error)return error;
     var exectable = mat[nextCmp][tokenVal];
 
     if(exectable==undefined){
@@ -145,14 +146,14 @@ function execGramaticaRec(semantica,tree,name){
 }
 
 function analisaGramatica(lexico,mat){
+    let semantica = {
+        tree: startTree(),
+        table: startTable(),
+        lexico,
+        mat,
+    }
     let error = checkErrorLexico(lexico);
     if(error==null){
-        let semantica = {
-            tree: startTree(),
-            table: startTable(),
-            lexico,
-            mat,
-        }
         error = execGramaticaRec(semantica,semantica.tree,semantica.tree.name)
     }
     if(error!=null){
