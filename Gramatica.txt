@@ -1,4 +1,6 @@
-<funcao> : <tipo> <variavel> (<parametros>) <comandos>
+<start>: <funcao> <start'>
+<start'>: <funcao> <start'> | <vazio>
+<funcao> : <tipo> <variavel> (<parametros>) <comando>
 
 <parametros>: <declaracao> <parametros'> | vazio | <vazio>
 <parametros'>: ,<declaracao> <parametros'> | <vazio>
@@ -11,7 +13,7 @@
 <argumentos'>: ,<argumento><argumentos'> | <vazio>
 <argumento>: <variavel> | <num> | <string>
 
-<estrutura>: se (<condicoes>)<comandos> <senao> | enquanto (<condicoes>)<comandos> | para (<multi_declaracao>;<condicoes>;<variavel><atribuicao>)<comandos>
+<estrutura>: se (<condicoes>)<comandos> <senao> | enquanto (<condicoes>)<comandos> 
 
 <condicoes>:  <condicoes_or>  
 <condicoes_or>: <condicoes_and> <condicoes_or'>
@@ -39,23 +41,6 @@
 <calculo_val>: <variavel_chamada> | <num>  | <string>
 
 <variavel_chamada>: <variavel> | <chamada>
-
-<comando>: <estrutura> 
-<estrutura>: se (<condicoes>)<comando> <senao>
-<senao>: senao | <vazio>
-
-<estrutura>: <se> <senao>
-<se>: se (<condicoes>)<comando>
-<senao>: senao  | <vazio>
-
-
-
-
-
-
-
-
-
 
 
 

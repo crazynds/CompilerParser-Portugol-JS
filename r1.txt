@@ -19,6 +19,7 @@ inteiro main(inteiro args,inteiro laps){
     char val;
     x=10;
     val='a';
+    //nome = "string" + 6+54+'c';
     
     enquanto (x>0){
         cadeia str;
@@ -50,6 +51,7 @@ vazio teste(inteiro args){
     x = 16;
     y = 100;
     y = main(4,x);
+    superTeste(6);
     se((x>12)&&(x<1||y>3)||y>1){
     
     }senao{
