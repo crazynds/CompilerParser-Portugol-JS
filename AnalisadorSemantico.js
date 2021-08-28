@@ -145,16 +145,16 @@ function execGramaticaRec(semantica,tree,name){
 }
 
 function analisaGramatica(lexico,mat){
-    if(lexico.hasError())return null;
-    if(!lexico.hasToken())return null;
-
-    let semantica = {
-        tree: startTree(),
-        table: startTable(),
-        lexico,
-        mat,
+    let error = checkErrorLexico(lexico);
+    if(error==null){
+        let semantica = {
+            tree: startTree(),
+            table: startTable(),
+            lexico,
+            mat,
+        }
+        error = execGramaticaRec(semantica,semantica.tree,semantica.tree.name)
     }
-    let error = execGramaticaRec(semantica,semantica.tree,semantica.tree.name)
     if(error!=null){
         //exec error!
         console.log(error);

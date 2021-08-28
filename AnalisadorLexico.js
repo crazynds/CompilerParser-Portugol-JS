@@ -91,6 +91,14 @@ const extractToken = function(string,{col,line}){
         if(error)break;
     }
     if(!error)error = checkIfUndentifiedTokenExist(analiseString,{line: line,col});
+    else{
+        return{
+            error,
+            newString: null,
+            newPosition: error.pos,
+            token:null
+        }
+    }
     col+=analiseString.length;
     let newString,token=null,item
     if(pos!=-1){
@@ -166,6 +174,9 @@ module.exports = {
             content: value,
             getToken: function(){
                 return this.content.token;
+            },
+            getError: function(){
+                return this.content.error;
             },
             getPosition: function(){
                 return this.content.newPosition;

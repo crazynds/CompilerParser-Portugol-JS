@@ -1,4 +1,5 @@
 
+§
 /*
  * Essa função executa um super teste em X e retorna um valor
  */
