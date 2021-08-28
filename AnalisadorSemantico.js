@@ -84,9 +84,10 @@ function execGramaticaRec(semantica,tree,name){
     let nextCmp = name;
     let error = checkErrorLexico(lexico);
     let tokenVal = (lexico.hasToken())?lexico.getToken().getComparable():'$';
-    if(error)return error;
     var exectable = mat[nextCmp][tokenVal];
 
+    if(error && exectable==undefined)return error;
+    else error = null;
     if(exectable==undefined){
         error = {
             message: "Erro no analisador sintático!",
