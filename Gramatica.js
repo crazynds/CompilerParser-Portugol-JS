@@ -540,7 +540,7 @@ module.exports={
             for(let i = 2;i<tree.childrens.length;i+=2){
                 let type = tree.childrens[i-1].name;
                 let yourType = tree.childrens[i].type;
-                if(myType=='CADEIA' || yourType=='CADEIA' && type=='+'){
+                if((myType=='CADEIA' || yourType=='CADEIA') && type=='+'){
                     myType = 'CADEIA';
                     continue;
                 }else if(myType=='CADEIA' || yourType=='CADEIA'){

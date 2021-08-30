@@ -61,12 +61,12 @@ function startTable(){
     }
 }
 
-function checkErrorLexico(lexico){
+function checkErrorLexico(lexico,needNext){
     if(lexico.hasError())return {
         message: "Erro no analisador léxico!",
         error: lexico.getError(),
     };
-    if(!lexico.hasToken())return {
+    if(!lexico.hasToken() && needNext)return {
         message: "Erro no analisador sintático!",
         error: {
             pos: lexico.getPosition(),
@@ -82,8 +82,8 @@ function execGramaticaRec(semantica,tree,name){
     let mat = semantica.mat;
     let table = semantica.table;
     let nextCmp = name;
-    let error = checkErrorLexico(lexico);
-    let tokenVal = (lexico.hasToken())?lexico.getToken().getComparable():'$';
+    let error = checkErrorLexico(lexico,false);
+    let tokenVal = (lexico.hasToken())?lexico.getToken().getComparable():((lexico.hasError())?'§':'$');
     var exectable = mat[nextCmp][tokenVal];
 
     if(error && exectable==undefined)return error;
@@ -115,7 +115,7 @@ function execGramaticaRec(semantica,tree,name){
                 }
                 return false;
             }else{
-                error = checkErrorLexico(lexico);
+                error = checkErrorLexico(lexico,true);
                 if(error!=null)return false
                 objTree.token = lexico.getToken()
                 lexico.next();
@@ -153,7 +153,7 @@ function analisaGramatica(lexico,mat){
         lexico,
         mat,
     }
-    let error = checkErrorLexico(lexico);
+    let error = checkErrorLexico(lexico,true);
     if(error==null){
         error = execGramaticaRec(semantica,semantica.tree,semantica.tree.name)
     }

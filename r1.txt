@@ -11,8 +11,7 @@ inteiro superTeste(inteiro x){
     x=1^62*3-42^4/3;
     retorna x;
 }
-§
-
+%
 /*
  * Essa função é o main principal do programa.
  */
@@ -22,7 +21,7 @@ inteiro main(inteiro laps){
     x=10;
     val='a';
     cadeia nome;
-    nome = "string" - 6 + 6+54+'c';
+    nome = "string" + 6 * 5 +54+'c';
     //args = args + x;
     //val = superTeste(x);
     
