@@ -8,18 +8,23 @@ inteiro superTeste(inteiro x){
     }{
         x=x/5;
     }
+    x=1^62*3-42^4/3;
     retorna x;
 }
+§
 
 /*
  * Essa função é o main principal do programa.
  */
-inteiro main(inteiro args,inteiro laps){
+inteiro main(inteiro laps){
     inteiro x,y;
     char val;
     x=10;
     val='a';
-    //nome = "string" + 6+54+'c';
+    cadeia nome;
+    nome = "string" - 6 + 6+54+'c';
+    //args = args + x;
+    //val = superTeste(x);
     
     enquanto (x>0){
         cadeia str;
@@ -31,13 +36,14 @@ inteiro main(inteiro args,inteiro laps){
         val = le();
         x=x-1;
     }
-
+    x = val+6^le();
     se (superTeste(y)<12)
         y=y+12;
 
     se(x+5>12){
         inteiro z;
         z= z*12+x/5;
+        retorna x;
     }
 
     retorna x;

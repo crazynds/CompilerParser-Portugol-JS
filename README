@@ -1,0 +1,7 @@
+#Requisitos
+
+O parser necessita apenas do NodeJs instalado no sistema. 
+
+#Execução
+
+Para fazer a execução é necessario executar: node ParserJs.js
